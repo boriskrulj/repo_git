@@ -108,17 +108,17 @@ The discovered anchors beat the random ones on 13 trips and lost on none (p belo
 
 This covers one family of random anchors. The random spots are also farther from the door than the discovered ones, so anchors placed *near* a door but not on it would be a stricter test, and I have not run it.
 
-## Two attempts without door labels, and why both failed
+## Three attempts without door labels, and why they failed
 
-The clustering uses no labels, but choosing *which* cluster is a door still uses the simulator's record of which door each trip crossed. I tried to remove that. The plan, written down before each run: build four regions from the embeddings alone, group each trip by the regions of its first and last state, and run the same door search with those groups in place of the door labels.
+The clustering uses no labels, but choosing *which* cluster is a door still uses the simulator's record of which door each trip crossed. I tried to remove that. The plan, written down before each run: build four regions from the embeddings alone, group each trip by the regions of its first and last state, and run the same door search with those groups in place of the door labels. Each time I first checked that the labelled version, run through the same code, reproduced the earlier result.
 
-**Attempt 1: four k-means regions.** It failed at the first step, and the pipeline was fine: re-running the labelled version through the same code reproduced the earlier result exactly. The four regions did not line up with the four rooms. Only about half of the states sat in the majority room of their region.
+**Attempt 1: four k-means regions.** The regions did not line up with the four rooms. Only about half of the states sat in the majority room of their region.
 
-**Attempt 2: regions from which states follow which.** The idea is that rooms are dense parts of the graph of "this state follows that one" within successful trips, and doors are the narrow places that join them. This did worse, and its warning sign was stark: not a single transition crossed from one region to another. Every trip stayed inside one region from its first state to its last.
+**Attempt 2: regions from which states follow which.** The idea is that rooms are dense parts of the graph of "this state follows that one" within successful trips, and doors are the narrow places that join them. This did worse: not a single transition crossed from one region to another, and every trip stayed inside one region from its first state to its last. The regions sorted the trips by *which door is closed*, while the rooms of the trips were mixed in every region.
 
-Looking at what those regions were explains both failures. They sort the trips by *which door is closed*. One region holds only trips with the bottom door closed, another only trips with the left door closed, and so on, while the rooms of the trips are mixed in every region. So in this model the upper embedding is dominated by the layout of the scene, and the agent's position is a smaller, finer part of it. A coarse split of the space follows the layout, not the rooms.
+**Attempt 3: remove the layout first.** Those islands are a label-free way to find the layouts, and they matched the closed door perfectly. So I subtracted each layout's average embedding and repeated attempt 2. The labelled analysis still found its three doors on the corrected embeddings, but the regions still failed. The layouts do not differ by a constant shift: the trips with no closed door stayed a separate island from the rest. And only about a quarter of the embedding variance lies *within* a trip, which is where position changes.
 
-That is a fact about one frozen model on this data, not a general claim about H-JEPA. It suggests a better order of work: first separate trips by layout (the islands from attempt 2 do that without labels), then look for rooms and doors inside one layout, where position is what varies. I have not tried that yet. Each trial used the same data, so the second attempt was designed after seeing why the first failed, and a replication on new episodes would still be needed.
+So in this model the upper embedding is dominated by what differs between trips, and the agent's position is a smaller part of it. That is a fact about one frozen model on this data, not a general claim about H-JEPA. Recovering the layout without labels worked; recovering the rooms and doors did not. Each attempt used the same data and was designed after seeing why the one before it failed, so a replication on new episodes would still be needed.
 
 ## The catch
 
@@ -129,14 +129,14 @@ I changed the scoring rule after seeing earlier results. That is why the last ru
 ## What this does not show
 
 - **One model, one world.** A single frozen checkpoint and one four-room environment.
-- **Labels in discovery.** The clustering uses no labels, but choosing *which* cluster is a door still uses the simulator's record of which door each episode crossed. My two attempts to remove that failed (see above), so this is not yet label-free discovery.
+- **Labels in discovery.** The clustering uses no labels, but choosing *which* cluster is a door still uses the simulator's record of which door each episode crossed. My three attempts to remove that failed (see above), so this is not yet label-free discovery.
 - **Narrow trips.** Trips through three of the four doors, each with one door closed.
 - **One planner seed per trip.**
 - **One family of random anchors.** The control rules out "any spot in the next room", not every other kind of waypoint (evenly spaced ones, or random spots near the door).
 
 ## What is next
 
-1. A third attempt at finding the doors without labels: first separate trips by layout, then look for rooms and doors inside one layout.
+1. Finding the doors without labels is still open. A possible route is to work inside a single layout, or to use something other than the embeddings alone, such as the model's own predictions.
 2. A stricter control: random anchors placed near a door but not on it.
 3. More model checkpoints and a second environment.
 
