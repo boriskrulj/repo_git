@@ -1,4 +1,4 @@
-# Boris: notes on world models and planning
+Notes on world models and planning
 
 Blog and lab notebook: https://boriskrulj.github.io/repo_git/
 
