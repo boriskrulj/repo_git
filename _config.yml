@@ -1,66 +1,32 @@
 # ---- EDIT THESE ----------------------------------------------------------
-title: "Your Blog Title"
-name: "Your Name"
-description: "Notes on world models, planning and experiments."
-url: "https://boriskrulj.github.io"               # no trailing slash
-baseurl: "/repo_git"                              # the repository name; use "" if you later move this to a repository named boriskrulj.github.io
-repository: "boriskrulj/repo_git"
-author:
-  name: "Boris Kruljevic"
-  avatar: ""                                    # e.g. "/assets/images/me.jpg" (put the file in assets/images)
-  bio: "One or two lines about you."
-  location: ""
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/boriskrulj"
+title: "Boris"                          # shown in the browser tab and the top bar
+author_name: "Your Name"
+tagline: "I study how world models plan."
+bio: "Write two or three sentences about yourself here: what you work on, what you are curious about, what you are learning."
+email: ""                               # leave empty to hide the email button
+github: "boriskrulj"
+linkedin: ""                            # e.g. "https://www.linkedin.com/in/your-name"; empty hides it
+resume_url: ""                          # e.g. "/assets/resume.pdf" (put the file in assets); empty hides it
+interests:                              # the list in "What I do"
+  - "World models and latent planning"
+  - "Hierarchical and goal-conditioned control"
+  - "Careful experiments: predict first, then run, then report what did not work"
 # ---------------------------------------------------------------------------
 
-# Theme: Minimal Mistakes as a remote theme, which GitHub Pages can build without any gem install.
-remote_theme: "mmistakes/minimal-mistakes@4.26.1"
-minimal_mistakes_skin: "default"                # also: air, aqua, contrast, dark, dirt, neon, mint, plum, sunrise
-locale: "en-US"
-search: true
-
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-paginate
+url: "https://boriskrulj.github.io"     # no trailing slash
+baseurl: "/repo_git"                    # the repository name; use "" for a repository named boriskrulj.github.io
+description: "Notes on world models, planning and experiments."
 
 markdown: kramdown
 highlighter: rouge
-permalink: /:year/:month/:title/
-paginate: 8
-paginate_path: /page:num/
+permalink: /blog/:year/:month/:title/
 timezone: Europe/Brussels
 
-include:
-  - _pages
+plugins:
+  - jekyll-feed
 
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
   - vendor
-
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      show_date: true
-      toc: true
-      toc_sticky: true
-      share: false
-      comments: false
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true

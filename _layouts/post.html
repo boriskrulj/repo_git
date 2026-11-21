@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="wrap post">
+  <p class="crumb"><a href="{{ '/blog/' | relative_url }}">&lt; Blog /&gt;</a></p>
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+    {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+  </p>
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

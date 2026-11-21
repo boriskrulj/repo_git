@@ -1,0 +1,23 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+<section class="section">
+  <div class="wrap">
+    <h1 class="code-title">&lt; Blog /&gt;</h1>
+    {% if site.posts.size == 0 %}
+      <p class="muted">No posts yet.</p>
+    {% endif %}
+    <ul class="entries">
+      {% for post in site.posts %}
+      <li>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 240 }}</p>
+        <p>{% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
