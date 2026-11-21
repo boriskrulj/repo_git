@@ -6,7 +6,7 @@ url: "https://boriskrulj.github.io"               # no trailing slash
 baseurl: "/repo_git"                              # the repository name; use "" if you later move this to a repository named boriskrulj.github.io
 repository: "boriskrulj/repo_git"
 author:
-  name: "Your Name"
+  name: "Boris Kruljevic"
   avatar: ""                                    # e.g. "/assets/images/me.jpg" (put the file in assets/images)
   bio: "One or two lines about you."
   location: ""
