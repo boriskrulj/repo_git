@@ -7,7 +7,7 @@ description: "Do recurring states from successful episodes act as useful checkpo
 excerpt: "Do recurring states from successful episodes act as useful checkpoints for a hierarchical world model's planner? Results so far, with the limits."
 ---
 
-*Update, 24 November 2026: the project has moved on, and the current summary is in [Learning checkpoints from experience, and planning with them alone]({% post_url 2026-11-24-learning-checkpoints-from-experience %}). This post is kept as the record of the earlier steps.*
+*Update, 24 November 2026: the project has moved on, and the current summary is in [Learning checkpoints from experience, and planning with them alone]({{ site.baseurl }}{% post_url 2026-11-24-learning-checkpoints-from-experience %}). This post is kept as the record of the earlier steps.*
 
 *Status: ongoing lab notebook. One small world, three trained copies of one model. Results are reported with their limits, and I will update this post as new tests finish. Last update: 21 November 2026, with the replication on two more trained copies.*
 

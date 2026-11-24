@@ -7,7 +7,7 @@ description: "A frozen world-model planner learns a few repeated states from its
 excerpt: "A frozen world-model planner learns a few repeated states from its own successful trips, throws the trips away, and plans new trips with those states alone."
 ---
 
-*Status: ongoing project, one small world, two trained models. This post replaces the [earlier lab notebook]({% post_url 2026-11-21-door-checkpoints-in-a-frozen-h-jepa %}) as the summary of where things stand. Last update: 24 November 2026.*
+*Status: ongoing project, one small world, two trained models. This post replaces the [earlier lab notebook]({{ site.baseurl }}{% post_url 2026-11-21-door-checkpoints-in-a-frozen-h-jepa %}) as the summary of where things stand. Last update: 24 November 2026.*
 
 ## The objective
 
