@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 206" role="img" aria-label="Model 42: trips reaching the goal out of 80. No hints 66, non-repeated hints 71, learned repeated states 79, chaining remembered trips (all 1,730 kept) 78."><rect x="-10" y="-6" width="660.0" height="218.0" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="14" fill="#1b1f24">
+<text x="0" y="34">No hints</text>
+<path d="M250 18 h260.0 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 h-260.0 z" fill="#5b6470"/>
+<text x="526.0" y="34" font-weight="600">66</text>
+<text x="0" y="78">Non-repeated hints</text>
+<path d="M250 62 h280.0 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 h-280.0 z" fill="#8a5a9e"/>
+<text x="546.0" y="78" font-weight="600">71</text>
+<text x="0" y="122">Learned repeated states</text>
+<path d="M250 106 h312.0 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 h-312.0 z" fill="#0f766e"/>
+<text x="578.0" y="122" font-weight="600">79</text>
+<text x="0" y="166">Remembering all trips</text>
+<path d="M250 150 h308.0 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 h-308.0 z" fill="#9aa3ad"/>
+<text x="574.0" y="166" font-weight="600">78</text>
+<line x1="250" y1="8" x2="250" y2="196" stroke="#d9d5ca" stroke-width="1"/>
+</g></svg>
