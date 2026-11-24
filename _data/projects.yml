@@ -1,6 +1,6 @@
 # One block per project card on the home page. Add, remove or reorder freely.
-- title: "Door checkpoints in a frozen H-JEPA"
-  summary: "Do recurring states from successful episodes act as useful checkpoints for a hierarchical world model's planner? A lab notebook on finding them, steering the planner through them, and what the controls show."
+- title: "Learning checkpoints from experience"
+  summary: "A frozen world-model planner learns a few repeated states from its own successful trips, throws the trips away, and plans new trips with them alone. Failures drop from about one in five to about one in eighty, and the control shows it is the repetition that helps."
   status: "In progress"
   tags: ["world models", "planning", "JEPA"]
   link: "/blog/"      # blog index; swap for the post URL if you prefer
